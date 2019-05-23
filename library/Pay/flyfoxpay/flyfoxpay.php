@@ -122,10 +122,11 @@ foreach ($security1 as $k=>$v)
 $sign1 = md5(substr($o,0,-1).$payconfig['app_secret']);//**********請替換成商家KEY
 $json=json_decode($output, true);
 if($json['sign']==$sign1){
-  if($json['status_trade']=='payok'){$config = array('paymethod'=>$this->paymethod,'tradeid'=>$json['trade_no'],'paymoney'=>$json['customize2'],'orderid'=>$json['customize1'] );
+  if($json['status_trade']=='payok'){
+	  $config = array('paymethod'=>$this->paymethod,'tradeid'=>$json['trade_no'],'paymoney'=>$json['customize2'],'orderid'=>$json['customize1'] );
 					$notify = new \Pay\notify();
 					$data = $notify->run($config);
-					return '{"code":0,"msg":"success"}';
+					return '{"code":0,"msg":"success","ok":"ok"}';
                                     }else{return '{"code":0,"msg":"success1"}'; }
   
 }else{
