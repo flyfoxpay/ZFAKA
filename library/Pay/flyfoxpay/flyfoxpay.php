@@ -15,7 +15,7 @@ class flyfoxpay
 	public function pay($payconfig,$params)
 	{
 		try{
-			$url = "https://sc-i.pw/api/";//API位置
+			$url = "https://api.flyfoxpay.com/api/";//API位置
  
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $url);
@@ -76,7 +76,7 @@ $json=json_decode($output, true);
 	{
 		try {
           if($_REQUEST['orderid']=='' OR $_REQUEST['orderid']==null){ return '{"code":0,"msg":"success3"}'; }else{
-          $url = "https://sc-i.pw/api/check/";//API位置
+          $url = "https://api.flyfoxpay.com/api/check/";//API位置
  
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $url);
